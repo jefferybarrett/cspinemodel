@@ -13,7 +13,7 @@ Written by: Jeff M. Barrett
 """
 
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 
 """
@@ -23,6 +23,14 @@ import numpy as np
 This is mainly a library of functions that are useful for processing kinematic data.
 None of these are vectorized (especially the rotation matrix stuff)
 """
+
+def rad2deg(x):
+    return x * 180.0 / np.pi
+
+def deg2rad(x):
+    return x * np.pi / 180.0
+
+
 
 def norm(x):
     return np.sqrt(np.sum(x**2))
@@ -246,6 +254,19 @@ def vangles2dcm(phi = None, theta = None, psi = None, sequence = "XYZ"):
         return np.array([])
 
 
+def vdcm2angles(R, sequence = "XYZ"):
+    """
+    The inverse of vangles2dcm; maps an (Nx3x3) array onto a tuple of angles
+    :param R:
+    :param sequence:
+    :return:
+    """
+    angles = []
+    for rot in R:
+        angles.append(dcm2angle(rot, sequence))
+    return np.array(angles)
+
+
 
 def dcm2quat(R):
     """
@@ -317,7 +338,7 @@ def vquat2dcm(Q):
 
 
 
-def vdiff(v, dt):
+def vdiff(v, dt = 1.0):
     """
     Purpose: A vectorized computation of the centered difference derivative of a timeseries of
              vectors/matrices in v assuming evenly spaced samples. While preserving second-order
@@ -376,7 +397,20 @@ def quat_angular_velocity(q, dt):
 
 
 
-
+def csvread(filename, header = False):
+    """
+    Purpose: Opens a csv file and reads the data from inside it. Returns the data as a matrix
+    :param filename:
+    :return:
+    """
+    data = []
+    f = open(filename,'r')
+    if (header):
+        next(f)
+    for line in f:
+        data.append([float(x) for x in line.split(",")])
+    f.close()
+    return np.array(data)
 
 
 

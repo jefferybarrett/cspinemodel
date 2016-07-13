@@ -7,6 +7,10 @@ s,nasion,gnathion,124.407,22.54
 s,orbitale,orbitale,65.514,4.521
 s,occipital protuberance,bregma,132.8068,12.489
 ,,,,
+mass,4.69,,,
+moix,0.0181,0.0071,0,
+moiy,0.0071,0.0173,0,
+moiz,0,0,0.0236,
 ,,,,
 p,C1-C0 center of rotation,0,-94.4476641,-70.17525443
 p,occipital protuberance,0,-174.224633,14.39835801
@@ -16,7 +20,7 @@ p,nasion,0,0,0
 p,bregma,0,-57.46328457,109.6361194
 p,gnathion,0,-6.324302147,-125.9166819
 p,juggular foramen,31.80620891,-107.9895712,-52.52317462
-p,mastoid,46.15548248,-78.65189746,-66.07130086
+p,mastoid,65.61838416,-109.0856058,-40.03959951
 p,occipital condyle,22.73711574,-95.77271629,-62.03379894
 p,center of mass,0,-72.77271629,-7.033798942
 ,,,,

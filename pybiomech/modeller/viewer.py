@@ -133,6 +133,7 @@ def begin_line(colour = np.array([0.0, 0.0, 0.0])):
     glPointSize(10.0)
     glColor3f(colour[0], colour[1], colour[2])
     glEnable(GL_LINE_SMOOTH)
+    glLineWidth(4.0)
     glBegin(GL_LINE_STRIP)
 
 def add_point(pt):
@@ -558,7 +559,7 @@ class GFXWindow(pyglet.window.Window):
 
 
     def on_key_press(self, symbol, modifiers):
-        print(symbol)
+        #print(symbol)
         if (symbol == 119): # w
             self.camera.throttle_forward(self.mouse_sensitivity)
         elif (symbol == 115): # s
